@@ -1,6 +1,6 @@
-
-parent_directory = '/Users/macbookpro/Documents/amica_before_dipfit'; % put the name of parent directory
-
+clear
+parent_directory = '/Users/macbookpro/Documents/Beep_Only/DownSample'; % put the name of parent directory
+new_filepath =  '/Users/macbookpro/Documents/Beep_Only/Dipfit'; % put the name of parent directory
 files = dir(parent_directory);
 
 for dir_ind = 1: length(files)
@@ -19,7 +19,6 @@ for dir_ind = 1: length(files)
         EEG = pop_multifit(EEG,comps,'dipoles',2, 'threshold', [100]);
         
         new_filename = strcat('dipfit2_', dir.name);
-        new_filepath = '/Users/macbookpro/Documents/Jesus_omg';
         
         EEG = pop_saveset( EEG, 'filename',new_filename,'filepath', new_filepath ); % Save the data
     end

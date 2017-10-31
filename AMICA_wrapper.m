@@ -8,8 +8,8 @@
 %       AMICA
 %       getFolders.m
 
-
-parent_directory = '/Users/macbookpro/Documents/output_pair1-3'; % put the name of parent directory
+clear
+parent_directory = '/Users/macbookpro/Documents/Beep_Only/DownSample'; % put the name of parent directory
 
 
 % Extract only those that are directories.
@@ -43,7 +43,7 @@ for dir_ind = length(subFolders):-1:1
     %%%% Plotting the result %%%%
     pop_topoplot(EEG,0, [1:64] ,'170613_TRIAL7_LP epochs',[8 8] ,0,'electrodes','off'); % plot components map
 
-    fname = 'D:\path1\path2'; % Path to the place you want to save the components map
+    fname = '/Users/macbookpro/Documents/Beep_Only/Components Map'; % Path to the place you want to save the components map
     saveas(gca, fullfile(amica_folder_path, 'map'), 'png'); % save it
     close(gcf) % Close the figure
 end
