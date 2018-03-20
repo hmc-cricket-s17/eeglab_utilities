@@ -9,14 +9,14 @@
 %       getFolders.m
 
 clear
-parent_directory = '/Users/macbookpro/Documents/Beep_Only/DownSample'; % put the name of parent directory
+parent_directory = '/Users/macbookpro/Documents/Cogneuro/One'; % put the name of parent directory
 
 
 % Extract only those that are directories.
 subFolders = getFolders(parent_directory);
 
-num_pca = 64; % number of pca
-max_iter = 2000; % number of iterations for AMICA;
+num_pca = 140; % number of pca
+max_iter = 3000; % number of iterations for AMICA;
 
 for dir_ind = length(subFolders):-1:1
     dir = subFolders(dir_ind);
@@ -29,7 +29,7 @@ for dir_ind = length(subFolders):-1:1
     EEG = pop_loadset('filename',filename,'filepath',path);
 
     %%%% Run AMICA and save the data %%%% 
-    [W,S,mods] = runamica15(EEG.data(:,:), 'pcakeep', num_pca, 'max_iter', 2000);
+    [W,S,mods] = runamica15(EEG.data(:,:), 'pcakeep', num_pca, 'max_iter', max_iter);
     EEG.icaweights = W;
     EEG.icasphere = S(1:size(W,1),:);
     EEG.icawinv = mods.A(:,:,1);
